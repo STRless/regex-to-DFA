@@ -2,10 +2,22 @@
 #define NODE_HPP
 
 #include <vector>
+#include "token.hpp"
+
+enum class NodeType {
+    EXPR,
+    TERM,
+    FACTOR,
+    ATOM,
+    CHAR,   // terminal
+    META,   // terminal
+};
 
 class Node {
 public:
-    std::vector<Node> children;
+    NodeType type;
+    Token token;
+    std::vector<std::unique_ptr<Node>> children;
 };
 
 #endif

@@ -4,19 +4,21 @@
 #include <set>
 
 enum class TokenType {
-    CHAR,
-    ALTERNATION,
-    KLEENE_STAR,
-    KLEENE_PLUS,
-    LPAREN,
-    RPAREN,
-    DOT,
-    CHAR_GROUP
+    CHAR,           // terminal
+    ALTERNATION,    // non terminal
+    KLEENE_STAR,    // non terminal
+    KLEENE_PLUS,    // non terminal
+    QUEST_MARK,     // non terminal
+    LPAREN,         // terminal
+    RPAREN,         // terminal
+    DOT,            // terminal
+    CHAR_GROUP,     // terminal
+    NONE            // NO TOKEN
 };
 
 class Token {
 public:
-    enum TokenType type;
+    TokenType type;
     std::variant<char, std::set<char>> lexeme; // set in case of char_group
 };
 

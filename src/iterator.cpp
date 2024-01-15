@@ -4,6 +4,11 @@ char Iterator::get_char() {
     return buffer[cursor];
 }
 
+void Iterator::consume_char() {
+    ++cursor;
+    return;
+}
+
 bool Iterator::has_next() {
     return cursor < buffer_len;
 }
